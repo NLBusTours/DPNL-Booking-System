@@ -189,7 +189,7 @@
   </header>
 
   <div class="below-bus-text">
-    ✨ Fill out the form below to inquire about a Princess Visit, Dream Room Party, or Event Venue Rental.
+    ✨ Select your Service & Fill in your Info!
     We’ll get back to you as soon as possible with availability & pricing! ✨
   </div>
 
@@ -232,34 +232,63 @@
         </div>
       </div>
 
-      <label>Duration (Hours)</label>
-      <input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
-
       <!-- Princess Visit Section -->
       <div class="service-section" id="section-visit">
-        <h4>Princess Visit Details</h4>
-        <small>For in-home or on-location visits by your favourite character.</small>
-
-        <label>Birthday Child's Name & Age</label>
-        <input type="text" name="Visit - Birthday Child" placeholder="e.g., Ava, turning 5" />
-
-        <label>Character(s)</label>
-        <input type="text" name="Visit - Characters" placeholder="e.g., Snow Queen, Mermaid Princess" />
-
-        <label>Upgrades</label>
-        <textarea name="Visit - Upgrades" placeholder="Face painting, glitter tattoos, small gift, etc."></textarea>
+        <h4>Princess or Superhero Visit Details</h4>
+        <small>For in-home or on-location visits by your favourite character(s)!</small>
+        
+        <label>Duration (Hours)</label>
+        <input type="number" name="Duration (Hours)" min="0.5 max="8" step="0.75" value="1" required />
 
         <label>Address</label>
         <input type="text" name="Visit - Address" placeholder="Street address" />
 
         <label>Town / Area</label>
-        <input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, etc." />
+        <input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, Clarenville, Bay Roberts, etc. *Travel Fees may apply" />
+
+        <label>Birthday Child's Name & Age</label>
+        <input type="text" name="Visit - Birthday Child" placeholder="e.g., Oakleigh, turning 4" />
+        
+        <label>Character(s)</label>
+        <select name="Visit - Characters">
+          <option value="" selected>Choose Your Character!</option>
+          <option>Elsa</option>
+          <option>Anna</option>
+          <option>Moana</option>
+          <option>Lumi (Fairy Godmother)</option>
+          <option>Ariel</option>
+          <option>Belle</option>
+          <option>Ariel</option>
+          <option>Rapunzel</option>
+          <option>Spider-Man</option>
+          <option>Spider-Gwen</option>
+          <option>Captain America</option>
+          <option>Jasmine</option>
+          <option>Cinderella</option>
+          <option>Aurora</option>
+          <option>Snow White</option>
+          <option>Mali (Maleficent)</option>
+          <option>Tinkerbell</option>
+          <option>Kristoff</option>
+          <option>The Beast</option>
+          <option>Peter Pan</option>
+          <option>Olaf</option>
+          <option>Santa Claus</option>
+          
+        </select>
+
+        <label>Upgrade Request</label>
+        <textarea name="Visit - Upgrades" placeholder="Face Painting, Glitter Tattoos, Bouncy Castle, Pass-the-Parcel, Crafts, Small Gift, etc. *Prices vary"></textarea>
+
       </div>
 
       <!-- Dream Room Princess Party Section -->
       <div class="service-section" id="section-party">
         <h4>Dream Room Princess Party Details</h4>
         <small>Hosted party inside The Dream Room with character entertainment.</small>
+
+        <label>Duration (Hours)</label>
+        <input type="number" name="Duration (Hours)" min="1 max="8" step="0.5" value="1" required />
 
         <label>Number of Children</label>
         <input type="number" name="Party - Number of Children" min="1" max="20" />
@@ -280,22 +309,25 @@
         <select name="Party - Catering">
           <option value="" selected>Choose an option</option>
           <option>Not Required</option>
-          <option>Interested in Pizza Package</option>
+          <option>Pizza Package (Add $50)</option>
           <option>Bringing Our Own Food</option>
         </select>
 
         <label>Pizza (Pick up to 3)</label>
-        <small>Cheese, Cheese & Pepperoni, Garlic Fingers</small>
+        <small> Include 3 Jumbo, Mix & Macth: Cheese, Cheese & Pepperoni, or Garlic Fingers</small>
         <input type="text" name="Party - Pizza Choices" placeholder="e.g., 1x Cheese, 1x Pepperoni & Cheese, 1x Garlic Fingers" />
       </div>
 
       <!-- Event Venue Rental Section -->
       <div class="service-section" id="section-rental">
         <h4>Event Venue Rental Details</h4>
-        <small>Perfect for bridal showers, baby showers, adult birthdays, bachelorettes, and more.</small>
+        <small>Pre-decorated Venue, perfect for Bridal Showers, Baby Showers, Birthdays, Bachelorettes, and More!</small>
 
         <label>Type of Event</label>
-        <input type="text" name="Rental - Event Type" placeholder="Bridal Shower, Baby Shower, Bachelorette, etc." />
+        <input type="text" name="Rental - Event Type" placeholder="Birthday, Bridal Shower, Baby Shower, Bachelorette, etc." />
+
+        <label>Duration (Hours)</label>
+        <input type="number" name="Duration (Hours)" min="1 max="8" step="0.5" value="1" required />
 
         <label>Number of Guests</label>
         <input type="number" name="Rental - Guest Count" min="1" max="40" />
@@ -304,19 +336,16 @@
         <select name="Rental - Catering">
           <option value="" selected>Choose an option</option>
           <option>Not Required</option>
-          <option>Interested in Catering Options</option>
+          <option>Interested in Catering Options ($50+)</option>
           <option>Bringing Our Own Food</option>
         </select>
 
-        <label>Add-Ons</label>
-        <textarea name="Rental - Add-Ons" placeholder="Backdrop, balloon garland, table decor, throne chair, etc."></textarea>
+        <label>Add-On Inquiry</label>
+        <textarea name="Rental - Add-Ons" placeholder="Party Games, Party Cart, Balloon Arch, 3D Flower Wall, Professional Hair & Makeup, Photographer, Bus Crawl, or anything else you can thin of - we'll do our beat to make it happen! Prices vary* "></textarea>
 
         <label>Special Requests / Notes</label>
         <textarea name="Rental - Notes" placeholder="Tell us about your event vision..."></textarea>
       </div>
-
-      <label>Anything else we should know?</label>
-      <textarea name="General Notes" placeholder="Themes, colours, surprise details, accessibility info, etc."></textarea>
 
       <button type="submit">Submit Booking Request</button>
     </form>
@@ -333,7 +362,7 @@
       <!-- Replace src with your actual princess visit image -->
       <img src="princess-visit.jpg" alt="Princess Visit">
       <h4>👑 Princess Visit</h4>
-      <p>A character comes to your home or venue for songs, stories, photos, and magical memories.</p>
+      <p>A Cast Member comes to your home or venue for songs, stories, photos, and magical memories.</p>
     </div>
 
     <div class="service-card" data-popup="popup-party">
@@ -347,7 +376,7 @@
       <!-- Replace src with venue aesthetic shot -->
       <img src="venue-rental.jpg" alt="Event Venue Rental">
       <h4>✨ Event Venue Rental</h4>
-      <p>Rent our beautiful space for bridal showers, baby showers, bachelorettes, and more.</p>
+      <p>Rent our beautiful space for Birthdays, Bridal Showers, Baby Showers, Bachelorettes, and more!</p>
     </div>
   </div>
 
@@ -362,7 +391,7 @@
         <li>🎵 Songs, stories, games & interactive magic</li>
         <li>📸 Time for photos and meet & greet</li>
         <li>🎂 Perfect for birthdays and special surprises</li>
-        <li>🌟 Customizable based on your child’s favourite character</li>
+        <li>🌟 Customizable based on your child’s favourite activities</li>
       </ul>
     </div>
   </div>
@@ -377,7 +406,7 @@
         <li>👑 Character-hosted party with games & activities</li>
         <li>🎂 Space for cake, gifts, and photos</li>
         <li>✨ Add-ons available for decor & upgrades</li>
-        <li>💌 Ideal for ages 3–10 and themed celebrations</li>
+        <li>💌 Ideal for children's parties & themed celebrations</li>
       </ul>
     </div>
   </div>
@@ -388,11 +417,11 @@
     <div class="popup-text">
       <h5>Event Venue Rental Highlights</h5>
       <ul>
-        <li>✨ Soft, elegant space for showers & parties</li>
+        <li>✨ Soft, elegant, pre-decorated space</li>
         <li>🪑 Tables, chairs, and basic setup included</li>
         <li>🎈 Options for decor and photo backdrops</li>
-        <li>🥂 Perfect for bridal & baby showers, bachelorettes, adult birthdays</li>
-        <li>📍 Convenient location with cozy, magical atmosphere</li>
+        <li>🥂 Perfect for bridal & baby showers, bachelorettes, birthdays</li>
+        <li>📍 Convenient location with cozy, classy atmosphere</li>
       </ul>
     </div>
   </div>
