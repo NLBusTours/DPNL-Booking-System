@@ -71,14 +71,25 @@
     }
 
     .service-card {
-      min-width: 260px; max-width: 260px;  /* keep all same size */
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      text-align: center;
-      border: 1px solid #f8dce8;
-      transition: transform 0.25s ease;
-      position: relative;
-    }
+  min-width: 260px; max-width: 260px;
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  text-align: center;
+  border: 1px solid #f8dce8;
+  transition: transform 0.25s ease;
+  position: relative;
+  padding-bottom: 20px; /* adds space below text */
+}
+
+.service-card h4 {
+  margin: 12px 12px 8px; /* left/right padding */
+}
+
+.service-card p {
+  padding: 0 15px 10px; /* sides & bottom padding */
+  font-size: 0.9em;
+  color: #7a5a73;
+}
     .service-card img {
       width: 100%; height: 150px;
       object-fit: cover; border-radius: 14px 14px 0 0;
