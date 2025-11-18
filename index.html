@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -118,6 +119,7 @@
       display: none;
     }
   </style>
+
 </head>
 
 <body>
@@ -133,6 +135,7 @@
 <form id="bookingForm">
 
   <!-- Web3Forms -->
+
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_subject" value="New Dream Parties Booking Request">
   <input type="hidden" name="_template" value="table">
@@ -140,24 +143,16 @@
   <h3>Booking Request Form</h3>
 
   <!-- Selector -->
-  <label for="serviceType">Service Type</label>
-  <select id="serviceType" name="Service Type" required>
-    <option value="" disabled selected>Select a Service</option>
-    <option value="visit">Princess Visit</option>
-    <option value="party">Dream Room Princess Party</option>
-    <option value="rental">Event Venue Rental</option>
-    <option value="public">Public Event / Market / Festival</option>
-  </select>
+
+<label for="serviceType">Service Type</label> <select id="serviceType" name="Service Type" required> <option value="" disabled selected>Select a Service</option> <option value="visit">Princess Visit</option> <option value="party">Dream Room Princess Party</option> <option value="rental">Event Venue Rental</option> <option value="public">Public Event / Market / Festival</option> </select>
 
   <!-- Always-shown fields -->
-  <label>Name</label>
-  <input type="text" name="Name" placeholder="Your Name" required />
 
-  <label>Phone</label>
-  <input type="tel" name="Phone" placeholder="709-555-1234" required />
+<label>Name</label> <input type="text" name="Name" placeholder="Your Name" required />
 
-  <label>Email</label>
-  <input type="email" name="Email" placeholder="your@email.com" required />
+<label>Phone</label> <input type="tel" name="Phone" placeholder="709-555-1234" required />
+
+<label>Email</label> <input type="email" name="Email" placeholder="your@email.com" required />
 
   <div class="form-row-inline">
     <div><label>Date</label><input type="date" name="Date" required /></div>
@@ -165,129 +160,146 @@
   </div>
 
   <!-- PRINCESS VISIT SECTION (unchanged except duration fix) -->
+
   <div class="service-section" id="section-visit">
     <h4>Princess or Superhero Visit Details</h4>
     <small>For in-home or on-location visits by your favourite character(s)!</small>
 
-    <label>Duration (Hours)</label>
-    <input type="number" name="Duration (Hours)" min="0.5" max="8" step="0.75" value="1" required />
+```
+<label>Duration (Hours)</label>
+<input type="number" name="Duration (Hours)" min="0.5" max="8" step="0.75" value="1" required />
 
-    <label>Address</label>
-    <input type="text" name="Visit - Address" placeholder="Street address" />
+<label>Address</label>
+<input type="text" name="Visit - Address" placeholder="Street address" />
 
-    <label>Town / Area</label>
-    <input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, Clarenville, Bay Roberts, etc. *Travel Fees may apply" />
+<label>Town / Area</label>
+<input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, Clarenville, Bay Roberts, etc. *Travel Fees may apply" />
 
-    <label>Birthday Child's Name & Age</label>
-    <input type="text" name="Visit - Birthday Child" placeholder="e.g., Oakleigh, turning 4" />
+<label>Birthday Child's Name & Age</label>
+<input type="text" name="Visit - Birthday Child" placeholder="e.g., Oakleigh, turning 4" />
 
-    <label>Character(s)</label>
-    <select name="Visit - Characters">
-      <option value="" selected>Choose Your Character!</option>
-      <option>Elsa</option><option>Anna</option><option>Moana</option><option>Lumi (Fairy Godmother)</option>
-      <option>Ariel</option><option>Belle</option><option>Rapunzel</option><option>Spider-Man</option>
-      <option>Spider-Gwen</option><option>Captain America</option><option>Jasmine</option><option>Cinderella</option>
-      <option>Aurora</option><option>Snow White</option><option>Mali (Maleficent)</option><option>Tinkerbell</option>
-      <option>Kristoff</option><option>The Beast</option><option>Peter Pan</option><option>Olaf</option>
-      <option>Santa Claus</option><option>OTHER</option>
-    </select>
+<label>Character(s)</label>
+<select name="Visit - Characters">
+  <option value="" selected>Choose Your Character!</option>
+  <option>Elsa</option><option>Anna</option><option>Moana</option><option>Lumi (Fairy Godmother)</option>
+  <option>Ariel</option><option>Belle</option><option>Rapunzel</option><option>Spider-Man</option>
+  <option>Spider-Gwen</option><option>Captain America</option><option>Jasmine</option><option>Cinderella</option>
+  <option>Aurora</option><option>Snow White</option><option>Mali (Maleficent)</option><option>Tinkerbell</option>
+  <option>Kristoff</option><option>The Beast</option><option>Peter Pan</option><option>Olaf</option>
+  <option>Santa Claus</option><option>OTHER</option>
+</select>
 
-    <label>Upgrade Request</label>
-    <textarea name="Visit - Upgrades" placeholder="Face Painting, Glitter Tattoos, Bouncy Castle, Pass-the-Parcel, Crafts, Small Gift, etc. *Prices vary"></textarea>
+<label>Upgrade Request</label>
+<textarea name="Visit - Upgrades" placeholder="Face Painting, Glitter Tattoos, Bouncy Castle, Pass-the-Parcel, Crafts, Small Gift, etc. *Prices vary"></textarea>
+```
+
   </div>
 
   <!-- DREAM ROOM PARTY SECTION -->
+
   <div class="service-section" id="section-party">
     <h4>Dream Room Princess Party Details</h4>
     <small>Hosted party inside The Dream Room with character entertainment.</small>
 
-    <label>Duration (Hours)</label>
-    <input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
+```
+<label>Duration (Hours)</label>
+<input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
 
-    <label>Number of Children</label>
-    <input type="number" name="Party - Number of Children" min="1" max="20" />
+<label>Number of Children</label>
+<input type="number" name="Party - Number of Children" min="1" max="20" />
 
-    <label>Birthday Child's Name & Age</label>
-    <input type="text" name="Party - Birthday Child" placeholder="e.g., Ella, turning 7" />
+<label>Birthday Child's Name & Age</label>
+<input type="text" name="Party - Birthday Child" placeholder="e.g., Ella, turning 7" />
 
-    <label>Character(s)</label>
-    <input type="text" name="Party - Characters" placeholder="e.g., Snow Sisters, Fairy, Mermaid, etc." />
+<label>Character(s)</label>
+<input type="text" name="Party - Characters" placeholder="e.g., Snow Sisters, Fairy, Mermaid, etc." />
 
-    <label>Activities</label>
-    <textarea name="Party - Activities" placeholder="Storytime, sing-along, games, dancing, crafts, etc."></textarea>
+<label>Activities</label>
+<textarea name="Party - Activities" placeholder="Storytime, sing-along, games, dancing, crafts, etc."></textarea>
 
-    <label>Upgrades</label>
-    <textarea name="Party - Upgrades" placeholder="Backdrop, extra character, party favors, etc."></textarea>
+<label>Upgrades</label>
+<textarea name="Party - Upgrades" placeholder="Backdrop, extra character, party favors, etc."></textarea>
 
-    <label>Catering</label>
-    <select name="Party - Catering">
-      <option value="" selected>Choose an option</option>
-      <option>Not Required</option>
-      <option>Pizza Package (Add $50)</option>
-      <option>Bringing Our Own Food</option>
-    </select>
+<label>Catering</label>
+<select name="Party - Catering">
+  <option value="" selected>Choose an option</option>
+  <option>Not Required</option>
+  <option>Pizza Package (Add $50)</option>
+  <option>Bringing Our Own Food</option>
+</select>
 
-    <label>Pizza (Pick up to 3)</label>
-    <small> Include 3 Jumbo, Mix & Macth: Cheese, Cheese & Pepperoni, or Garlic Fingers</small>
-    <input type="text" name="Party - Pizza Choices" placeholder="e.g., 1x Cheese, 1x Pepperoni & Cheese, 1x Garlic Fingers" />
+<label>Pizza (Pick up to 3)</label>
+<small> Include 3 Jumbo, Mix & Macth: Cheese, Cheese & Pepperoni, or Garlic Fingers</small>
+<input type="text" name="Party - Pizza Choices" placeholder="e.g., 1x Cheese, 1x Pepperoni & Cheese, 1x Garlic Fingers" />
+```
+
   </div>
 
   <!-- EVENT VENUE RENTAL -->
+
   <div class="service-section" id="section-rental">
     <h4>Event Venue Rental Details</h4>
     <small>Pre-decorated Venue, perfect for Bridal Showers, Baby Showers, Birthdays, Bachelorettes, and More!</small>
 
-    <label>Type of Event</label>
-    <input type="text" name="Rental - Event Type" placeholder="Birthday, Bridal Shower, Baby Shower, Bachelorette, etc." />
+```
+<label>Type of Event</label>
+<input type="text" name="Rental - Event Type" placeholder="Birthday, Bridal Shower, Baby Shower, Bachelorette, etc." />
 
-    <label>Duration (Hours)</label>
-    <input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
+<label>Duration (Hours)</label>
+<input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
 
-    <label>Number of Guests</label>
-    <input type="number" name="Rental - Guest Count" min="1" max="40" />
+<label>Number of Guests</label>
+<input type="number" name="Rental - Guest Count" min="1" max="40" />
 
-    <label>Catering</label>
-    <select name="Rental - Catering">
-      <option value="" selected>Choose an option</option>
-      <option>Not Required</option>
-      <option>Interested in Catering Options ($50+)</option>
-      <option>Bringing Our Own Food</option>
-    </select>
+<label>Catering</label>
+<select name="Rental - Catering">
+  <option value="" selected>Choose an option</option>
+  <option>Not Required</option>
+  <option>Interested in Catering Options ($50+)</option>
+  <option>Bringing Our Own Food</option>
+</select>
 
-    <label>Add-On Inquiry</label>
-    <textarea name="Rental - Add-Ons" placeholder="Party Games, Party Cart, Balloon Arch, 3D Flower Wall, Professional Hair & Makeup, Photographer, Bus Crawl, or anything else you can thin of - we'll do our beat to make it happen! Prices vary* "></textarea>
+<label>Add-On Inquiry</label>
+<textarea name="Rental - Add-Ons" placeholder="Party Games, Party Cart, Balloon Arch, 3D Flower Wall, Professional Hair & Makeup, Photographer, Bus Crawl, or anything else you can thin of - we'll do our beat to make it happen! Prices vary* "></textarea>
 
-    <label>Special Requests / Notes</label>
-    <textarea name="Rental - Notes" placeholder="Tell us about your event vision..."></textarea>
+<label>Special Requests / Notes</label>
+<textarea name="Rental - Notes" placeholder="Tell us about your event vision..."></textarea>
+```
+
   </div>
 
   <!-- PUBLIC EVENT ADDED -->
+
   <div class="service-section" id="section-public">
     <h4>Public Event / Market / Festival Details</h4>
     <small>For markets, festivals, corporate events, mall days, and other public appearances.</small>
 
-    <label>Duration (Hours)</label>
-    <input type="number" name="Public - Duration (Hours)" min="0.5" max="8" step="0.5" value="1" required />
+```
+<label>Duration (Hours)</label>
+<input type="number" name="Public - Duration (Hours)" min="0.5" max="8" step="0.5" value="1" required />
 
-    <label>Event Name</label>
-    <input type="text" name="Public - Event Name" placeholder="e.g., Downtown Holiday Market" />
+<label>Event Name</label>
+<input type="text" name="Public - Event Name" placeholder="e.g., Downtown Holiday Market" />
 
-    <label>Event Location</label>
-    <input type="text" name="Public - Location" placeholder="Venue / Address" />
+<label>Event Location</label>
+<input type="text" name="Public - Location" placeholder="Venue / Address" />
 
-    <label>Character(s)</label>
-    <input type="text" name="Public - Characters" placeholder="e.g., Elsa & Anna Meet & Greet" />
+<label>Character(s)</label>
+<input type="text" name="Public - Characters" placeholder="e.g., Elsa & Anna Meet & Greet" />
 
-    <label>Upgrade / Activity Requests</label>
-    <textarea name="Public - Upgrades" placeholder="Face painting, roaming characters, stage show, photo op, etc."></textarea>
+<label>Upgrade / Activity Requests</label>
+<textarea name="Public - Upgrades" placeholder="Face painting, roaming characters, stage show, photo op, etc."></textarea>
+```
+
   </div>
 
-  <button type="submit">Submit Booking Request</button>
+<button type="submit">Submit Booking Request</button>
 
 </form>
 </div>
 
 <!-- SERVICE CARDS -->
+
 <div class="intro-highlighted-box">
   <span class="headline-large">Explore Our Magical Options</span>
   Tap or hover each card below to learn more about the services we offer.
@@ -320,6 +332,7 @@
 </div>
 
 <!-- POPUPS -->
+
 <div class="service-hover-popup" id="popup-visit">
   <span class="popup-close">&times;</span>
   <img src="pv.jpg">
@@ -381,6 +394,7 @@
 </div>
 
 <!-- POPUP BEHAVIOR -->
+
 <script>
   const cards = document.querySelectorAll(".service-card");
   const popups = document.querySelectorAll(".service-hover-popup");
@@ -422,6 +436,7 @@
 </script>
 
 <!-- DYNAMIC SECTIONS -->
+
 <script>
   const select = document.getElementById("serviceType");
   const secVisit = document.getElementById("section-visit");
@@ -439,6 +454,7 @@
 </script>
 
 <!-- WEB3FORMS -->
+
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
   e.preventDefault();
