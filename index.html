@@ -91,9 +91,19 @@
   color: #7a5a73;
 }
     .service-card img {
-      width: 100%; height: 150px;
-      object-fit: cover; border-radius: 14px 14px 0 0;
-    }
+  width: 100%;
+  height: 180px;       /* 👈 make all images equal height */
+  object-fit: cover;   /* 👈 crops landscape/portrait nicely */
+  border-radius: 14px 14px 0 0;
+}
+
+    .service-card:hover img {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+.service-card img {
+  transition: transform 0.3s ease;
+}
 
     /* Popups */
     .service-hover-popup {
