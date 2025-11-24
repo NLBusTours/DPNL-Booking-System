@@ -145,6 +145,25 @@
       cursor: pointer; color: #7a5a73;
     }
 
+    /* Popup Images — Fix Landscape Crop */
+.service-hover-popup img {
+  max-width: 45%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;      /* shows full image, no crop */
+  background: #fff;
+  padding: 6px;
+  border: 2px solid #f8a8d8;
+  box-shadow: 0 2px 10px rgba(248, 168, 216, 0.35);
+}
+
+/* Popup Text Width Balance */
+.service-hover-popup .popup-text {
+  max-width: 50%;
+  text-align: left;
+}
+
+
     /* Dynamic sections */
     .service-section {
       margin-top: 18px;
