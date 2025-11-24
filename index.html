@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -62,10 +61,10 @@
     /* Service cards */
 .service-info {
   display: flex;
-  flex-wrap: nowrap;   /* FORCE one row */
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 20px;
-  overflow-x: auto;    /* allows sideways scroll on mobile */
+  overflow-x: auto;
   padding: 10px;
   max-width: 100%;
   margin: 40px auto;
@@ -80,24 +79,23 @@
   transition: transform 0.25s ease;
   position: relative;
   padding-bottom: 20px;
-  overflow: hidden; /* prevents flicker when img scales */
+  overflow: hidden; /* prevents flicker */
 }
 
 .service-card h4 {
-  margin: 12px 12px 8px; /* left/right padding */
+  margin: 12px 12px 8px;
 }
 
 .service-card p {
-  padding: 0 15px 10px; /* sides & bottom padding */
+  padding: 0 15px 10px;
   font-size: 0.9em;
   color: #7a5a73;
 }
 
-/* Card images */
 .service-card img {
   width: 100%;
-  height: 180px;        /* equal height */
-  object-fit: cover;    /* crops correctly */
+  height: 180px;
+  object-fit: cover;
   border-radius: 14px 14px 0 0;
   transition: transform 0.3s ease;
 }
@@ -106,17 +104,12 @@
   transform: scale(1.02);
 }
 
-    
 .intro-highlighted-box {
-  margin-bottom: 50px;   /* 🪄 pushes cards down */
-}
-
-    .intro-highlighted-box {
   font-size: 1.1em;
   text-align: center;
   font-weight: 500;
   color: #5a3553;
-  margin: 30px auto;
+  margin: 30px auto 60px auto;
   padding: 14px 20px;
   width: 90%;
   max-width: 900px;
@@ -133,8 +126,40 @@
   margin-bottom: 4px;
 }
 
-  </style>
+    /* Popups */
+    .service-hover-popup {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      flex-wrap: wrap; justify-content: center; gap: 24px;
+      width: 90vw; max-width: 900px;
+      background: #fff;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      z-index: 9999;
+      border: 2px solid #f6d365;
+    }
+    .service-hover-popup.active {
+      display: flex;
+      opacity: 1;
+    }
+    .popup-close {
+      position: absolute; top: 8px; right: 14px;
+      font-size: 1.8em; font-weight: bold;
+      cursor: pointer; color: #7a5a73;
+    }
 
+    .service-section {
+      margin-top: 18px;
+      padding: 14px; border-radius: 12px;
+      background: #fff7fb;
+      border: 1px dashed #f8a8d8;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -149,171 +174,170 @@
 <div id="booking-form">
 <form id="bookingForm">
 
-  <!-- Web3Forms -->
-
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_subject" value="New Dream Parties Booking Request">
   <input type="hidden" name="_template" value="table">
 
   <h3>Booking Request Form</h3>
 
-  <!-- Selector -->
+  <label for="serviceType">Service Type</label>
+  <select id="serviceType" name="Service Type" required>
+    <option value="" disabled selected>Select a Service</option>
+    <option value="visit">Princess Visit</option>
+    <option value="party">Dream Room Princess Party</option>
+    <option value="rental">Event Venue Rental</option>
+    <option value="public">Public Event / Market / Festival</option>
+  </select>
 
-<label for="serviceType">Service Type</label> <select id="serviceType" name="Service Type" required> <option value="" disabled selected>Select a Service</option> <option value="visit">Princess Visit</option> <option value="party">Dream Room Princess Party</option> <option value="rental">Event Venue Rental</option> <option value="public">Public Event / Market / Festival</option> </select>
+  <label>Name</label>
+  <input type="text" name="Name" placeholder="Your Name" required />
 
-  <!-- Always-shown fields -->
+  <label>Phone</label>
+  <input type="tel" name="Phone" placeholder="709-555-1234" required />
 
-<label>Name</label> <input type="text" name="Name" placeholder="Your Name" required />
-
-<label>Phone</label> <input type="tel" name="Phone" placeholder="709-555-1234" required />
-
-<label>Email</label> <input type="email" name="Email" placeholder="your@email.com" required />
+  <label>Email</label>
+  <input type="email" name="Email" placeholder="your@email.com" required />
 
   <div class="form-row-inline">
     <div><label>Date</label><input type="date" name="Date" required /></div>
     <div><label>Time</label><input type="time" name="Time" required /></div>
   </div>
 
-  <!-- PRINCESS VISIT SECTION (unchanged except duration fix) -->
-
+  <!-- Princess Visit -->
   <div class="service-section" id="section-visit">
     <h4>Princess or Superhero Visit Details</h4>
     <small>For in-home or on-location visits by your favourite character(s)!</small>
 
-```
-<label>Duration (Hours)</label>
-<input type="number" name="Duration (Hours)" min="0.5" max="8" step="0.75" value="1" required />
+    <label>Duration</label>
+    <select name="Duration (Visit)">
+      <option>30 min</option><option>45 min</option><option>60 min</option>
+    </select>
 
-<label>Address</label>
-<input type="text" name="Visit - Address" placeholder="Street address" />
+    <label>Address</label>
+    <input type="text" name="Visit - Address" placeholder="Street address" />
 
-<label>Town / Area</label>
-<input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, Clarenville, Bay Roberts, etc. *Travel Fees may apply" />
+    <label>Town / Area</label>
+    <input type="text" name="Visit - Town" placeholder="St. John’s, Paradise, Clarenville, Bay Roberts, etc. *Travel Fees may apply" />
 
-<label>Birthday Child's Name & Age</label>
-<input type="text" name="Visit - Birthday Child" placeholder="e.g., Oakleigh, turning 4" />
+    <label>Birthday Child's Name & Age</label>
+    <input type="text" name="Visit - Birthday Child" placeholder="e.g., Oakleigh, turning 4" />
 
-<label>Character(s)</label>
-<select name="Visit - Characters">
-  <option value="" selected>Choose Your Character!</option>
-  <option>Elsa</option><option>Anna</option><option>Moana</option><option>Lumi (Fairy Godmother)</option>
-  <option>Ariel</option><option>Belle</option><option>Rapunzel</option><option>Spider-Man</option>
-  <option>Spider-Gwen</option><option>Captain America</option><option>Jasmine</option><option>Cinderella</option>
-  <option>Aurora</option><option>Snow White</option><option>Mali (Maleficent)</option><option>Tinkerbell</option>
-  <option>Kristoff</option><option>The Beast</option><option>Peter Pan</option><option>Olaf</option>
-  <option>Santa Claus</option><option>OTHER</option>
-</select>
+    <label>Character(s)</label>
+    <select name="Visit - Characters">
+      <option value="" selected>Choose Your Character!</option>
+      <option>Elsa</option><option>Anna</option><option>Moana</option><option>Lumi (Fairy Godmother)</option>
+      <option>Ariel</option><option>Belle</option><option>Rapunzel</option><option>Spider-Man</option>
+      <option>Spider-Gwen</option><option>Captain America</option><option>Jasmine</option><option>Cinderella</option>
+      <option>Aurora</option><option>Snow White</option><option>Mali (Maleficent)</option><option>Tinkerbell</option>
+      <option>Kristoff</option><option>The Beast</option><option>Peter Pan</option><option>Olaf</option>
+      <option>Santa Claus</option><option>OTHER</option>
+    </select>
 
-<label>Upgrade Request</label>
-<textarea name="Visit - Upgrades" placeholder="Face Painting, Glitter Tattoos, Bouncy Castle, Pass-the-Parcel, Crafts, Small Gift, etc. *Prices vary"></textarea>
-```
-
+    <label>Upgrade Request</label>
+    <textarea name="Visit - Upgrades" placeholder="Face Painting, Glitter Tattoos, Bouncy Castle, Crafts, etc. *Prices vary"></textarea>
   </div>
 
-  <!-- DREAM ROOM PARTY SECTION -->
-
+  <!-- Dream Room Party -->
   <div class="service-section" id="section-party">
     <h4>Dream Room Princess Party Details</h4>
     <small>Hosted party inside The Dream Room with character entertainment.</small>
 
-```
-<label>Duration (Hours)</label>
-<input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
+    <label>Duration</label>
+    <select name="Duration (Party)">
+      <option>1.5 hours</option>
+      <option>2 hours</option>
+    </select>
 
-<label>Number of Children</label>
-<input type="number" name="Party - Number of Children" min="1" max="20" />
+    <label>Number of Children</label>
+    <input type="number" name="Party - Number of Children" min="1" max="20" />
 
-<label>Birthday Child's Name & Age</label>
-<input type="text" name="Party - Birthday Child" placeholder="e.g., Ella, turning 7" />
+    <label>Birthday Child's Name & Age</label>
+    <input type="text" name="Party - Birthday Child" placeholder="e.g., Ella, turning 7" />
 
-<label>Character(s)</label>
-<input type="text" name="Party - Characters" placeholder="Elsa, Anna, Ariel, Belle, Moana, Lumi, etc." />
+    <label>Character(s)</label>
+    <input type="text" name="Party - Characters" placeholder="Elsa, Anna, Ariel, Belle, Moana, Lumi, etc." />
 
-<label>Activities</label>
-<textarea name="Party - Activities" placeholder="Storytime, sing-along, games, dancing, crafts, etc."></textarea>
+    <label>Activities</label>
+    <textarea name="Party - Activities" placeholder="Storytime, singing, games, dancing, crafts, etc."></textarea>
 
-<label>Upgrades</label>
-<textarea name="Party - Upgrades" placeholder="Backdrop, extra character, party favors, etc."></textarea>
+    <label>Upgrades</label>
+    <textarea name="Party - Upgrades" placeholder="Backdrop, extra character, favors, etc."></textarea>
 
-<label>Catering</label>
-<select name="Party - Catering">
-  <option value="" selected>Choose an option</option>
-  <option>Not Required</option>
-  <option>Pizza Package (Add $50)</option>
-  <option>Bringing Our Own Food</option>
-</select>
+    <label>Catering</label>
+    <select name="Party - Catering">
+      <option value="" selected>Choose an option</option>
+      <option>Not Required</option>
+      <option>Pizza Package (Add $50)</option>
+      <option>Bringing Our Own Food</option>
+    </select>
 
-<label>Pizza (Pick up to 3)</label>
-<small> Include 3 Jumbo, Mix & Macth: Cheese, Cheese & Pepperoni, or Garlic Fingers</small>
-<input type="text" name="Party - Pizza Choices" placeholder="e.g., 1x Cheese, 1x Pepperoni & Cheese, 1x Garlic Fingers" />
-```
-
+    <label>Pizza (Pick up to 3)</label>
+    <small>Include 3 Jumbo, Mix & Match</small>
+    <input type="text" name="Party - Pizza Choices" placeholder="e.g., 1x Cheese, 1x Pepperoni & Cheese, 1x Garlic Fingers" />
   </div>
 
-  <!-- EVENT VENUE RENTAL -->
-
+  <!-- Venue Rental -->
   <div class="service-section" id="section-rental">
     <h4>Event Venue Rental Details</h4>
-    <small>Pre-decorated Venue, perfect for Bridal Showers, Baby Showers, Birthdays, Bachelorettes, and More!</small>
+    <small>Pre-decorated Venue for Bridal Showers, Baby Showers, Birthdays, Bachelorettes, and More!</small>
 
-```
-<label>Type of Event</label>
-<input type="text" name="Rental - Event Type" placeholder="Birthday, Bridal Shower, Baby Shower, Bachelorette, etc." />
+    <label>Type of Event</label>
+    <input type="text" name="Rental - Event Type" placeholder="Birthday, Bridal Shower, Baby Shower, Bachelorette, etc." />
 
-<label>Duration (Hours)</label>
-<input type="number" name="Duration (Hours)" min="1" max="8" step="0.5" value="1" required />
+    <label>Duration</label>
+    <select name="Duration (Rental)">
+      <option>2 hours</option><option>3 hours</option><option>4 hours</option>
+      <option>5 hours</option><option>6 hours</option><option>7 hours</option><option>8 hours</option>
+    </select>
 
-<label>Number of Guests</label>
-<input type="number" name="Rental - Guest Count" min="1" max="40" />
+    <label>Number of Guests</label>
+    <input type="number" name="Rental - Guest Count" min="1" max="40" />
 
-<label>Catering</label>
-<select name="Rental - Catering">
-  <option value="" selected>Choose an option</option>
-  <option>Not Required</option>
-  <option>Interested in Catering Options ($50+)</option>
-  <option>Bringing Our Own Food</option>
-</select>
+    <label>Catering</label>
+    <select name="Rental - Catering">
+      <option value="" selected>Choose an option</option>
+      <option>Not Required</option>
+      <option>Interested in Catering Options ($50+)</option>
+      <option>Bringing Our Own Food</option>
+    </select>
 
-<label>Add-On Inquiry</label>
-<textarea name="Rental - Add-Ons" placeholder="Party Games, Party Cart, Balloon Arch, 3D Flower Wall, Professional Hair & Makeup, Photographer, Bus Crawl, or anything else you can thin of - we'll do our beat to make it happen! Prices vary* "></textarea>
+    <label>Add-On Inquiry</label>
+    <textarea name="Rental - Add-Ons" placeholder="Party Games, Cart, Balloon Arch, Flower Wall, Hair & Makeup, Photographer, etc."></textarea>
 
-<label>Special Requests / Notes</label>
-<textarea name="Rental - Notes" placeholder="Tell us about your event vision..."></textarea>
-```
-
+    <label>Special Requests / Notes</label>
+    <textarea name="Rental - Notes" placeholder="Tell us about your event vision..."></textarea>
   </div>
 
-  <!-- PUBLIC EVENT ADDED -->
-
+  <!-- Public Event -->
   <div class="service-section" id="section-public">
     <h4>Public Event / Market / Festival Details</h4>
-    <small>For markets, festivals, corporate events, mall days, and other public appearances.</small>
+    <small>For markets, festivals, corporate events, mall days, and public appearances.</small>
 
-```
-<label>Duration (Hours)</label>
-<input type="number" name="Public - Duration (Hours)" min="0.5" max="8" step="0.5" value="1" required />
+    <label>Duration</label>
+    <select name="Public - Duration">
+      <option>30 min</option><option>45 min</option><option>1 hr</option>
+      <option>1 hr 15 min</option><option>1 hr 30 min</option><option>1 hr 45 min</option>
+      <option>2 hr</option><option>2 hr 15 min</option><option>2 hr 30 min</option><option>2 hr 45 min</option>
+      <option>3 hr</option>
+    </select>
 
-<label>Event Name</label>
-<input type="text" name="Public - Event Name" placeholder="e.g., Downtown Holiday Market" />
+    <label>Event Name</label>
+    <input type="text" name="Public - Event Name" placeholder="e.g., Downtown Holiday Market" />
 
-<label>Event Location</label>
-<input type="text" name="Public - Location" placeholder="Venue / Address" />
+    <label>Event Location</label>
+    <input type="text" name="Public - Location" placeholder="Venue / Address" />
 
-<label>Character(s)</label>
-<input type="text" name="Public - Characters" placeholder="e.g., Elsa & Anna Meet & Greet" />
+    <label>Character(s)</label>
+    <input type="text" name="Public - Characters" placeholder="e.g. Elsa & Anna Meet & Greet" />
 
-<label>Upgrade / Activity Requests</label>
-<textarea name="Public - Upgrades" placeholder="Face painting, roaming characters, stage show, photo op, etc."></textarea>
-```
-
+    <label>Upgrade / Activity Requests</label>
+    <textarea name="Public - Upgrades" placeholder="Face painting, roaming character, mini show, photo op, etc."></textarea>
   </div>
 
-<button type="submit">Submit Booking Request</button>
+  <button type="submit">Submit Booking Request</button>
 
 </form>
 </div>
-
-<!-- SERVICE CARDS -->
 
 <div class="intro-highlighted-box">
   <span class="headline-large">Explore Our Magical Options</span>
@@ -322,43 +346,42 @@
 
 <div class="service-info">
   <div class="service-card" data-popup="popup-visit">
-    <img src="pv.jpg" alt="Princess Visit">
+    <img src="pv.jpg">
     <h4>👑 Princess Visit</h4>
     <p>A Cast Member comes to your home or venue for songs, stories, photos, and magical memories.</p>
   </div>
 
   <div class="service-card" data-popup="popup-party">
-    <img src="dr.jpg" alt="Dream Room Princess Party">
+    <img src="dr.jpg">
     <h4>🏰 Dream Room Princess Party</h4>
     <p>A fully hosted, themed party at The Dream Room with character entertainment and activities.</p>
   </div>
 
   <div class="service-card" data-popup="popup-rental">
-    <img src="vr.jpg" alt="Event Venue Rental">
+    <img src="vr.jpg">
     <h4>✨ Event Venue Rental</h4>
     <p>Rent our beautiful space for Birthdays, Bridal Showers, Baby Showers, Bachelorettes, and more!</p>
   </div>
 
   <div class="service-card" data-popup="popup-public">
-    <img src="pe.jpg" alt="Public Event">
-    <h4>🎪 Public Event Entertainment </h4>
+    <img src="pe.jpg">
+    <h4>🎪 Public Event Entertainment</h4>
     <p>Book our performers for markets, festivals, fundraisers, and other public or corporate events.</p>
   </div>
 </div>
 
-<!-- POPUPS -->
-
+<!-- Popups -->
 <div class="service-hover-popup" id="popup-visit">
   <span class="popup-close">&times;</span>
   <img src="pv.jpg">
   <div class="popup-text">
     <h5>Princess Visit Highlights</h5>
     <ul>
-      <li>👑 Your chosen character arrives in full costume</li>
-      <li>🎵 Songs, stories, games & interactive magic</li>
-      <li>📸 Time for photos and meet & greet</li>
-      <li>🎂 Perfect for birthdays and special surprises</li>
-      <li>🌟 Customizable based on your child’s favourite activities</li>
+      <li>👑 Character arrives in full costume</li>
+      <li>🎵 Songs, stories, and magic moments</li>
+      <li>📸 Photos & meet-and-greet</li>
+      <li>🎂 Perfect for birthdays</li>
+      <li>🌟 Customizable activities</li>
     </ul>
   </div>
 </div>
@@ -370,10 +393,10 @@
     <h5>Dream Room Princess Party Highlights</h5>
     <ul>
       <li>🏰 Private use of The Dream Room</li>
-      <li>👑 Character-hosted party with games & activities</li>
-      <li>🎂 Space for cake, gifts, and photos</li>
-      <li>✨ Add-ons available for decor & upgrades</li>
-      <li>💌 Ideal for children's parties & themed celebrations</li>
+      <li>👑 Character-hosted games & activities</li>
+      <li>🎂 Space for cake, gifts, photos</li>
+      <li>✨ Optional decor & upgrades</li>
+      <li>💌 Perfect for themed celebrations</li>
     </ul>
   </div>
 </div>
@@ -384,11 +407,11 @@
   <div class="popup-text">
     <h5>Event Venue Rental Highlights</h5>
     <ul>
-      <li>✨ Soft, elegant, pre-decorated space</li>
-      <li>🪑 Tables, chairs, and basic setup included</li>
-      <li>🎈 Options for decor and photo backdrops</li>
-      <li>🥂 Perfect for bridal & baby showers, bachelorettes, birthdays</li>
-      <li>📍 Convenient location with cozy, classy atmosphere</li>
+      <li>✨ Elegant, pre-decorated space</li>
+      <li>🪑 Chairs, tables, basic setup</li>
+      <li>🎈 Decor options available</li>
+      <li>🥂 Great for showers & bachelorettes</li>
+      <li>📍 Convenient, cozy atmosphere</li>
     </ul>
   </div>
 </div>
@@ -399,16 +422,14 @@
   <div class="popup-text">
     <h5>Public Event Highlights</h5>
     <ul>
-      <li>🎪 Perfect for markets, festivals, mall days & community events</li>
-      <li>👑 Meet & greets, roaming characters, or staged moments</li>
-      <li>📸 Photo ops to draw in families & guests</li>
-      <li>🎤 Optional singing, storytelling, or mini shows</li>
-      <li>🤝 Great for branding, foot traffic, & attendee experience</li>
+      <li>🎪 Markets, festivals, mall days</li>
+      <li>👑 Meet & greets or roaming characters</li>
+      <li>📸 High-traffic photo ops</li>
+      <li>🎤 Mini shows & singing optional</li>
+      <li>🤝 Boosts branding & guest experience</li>
     </ul>
   </div>
 </div>
-
-<!-- POPUP BEHAVIOR -->
 
 <script>
   const cards = document.querySelectorAll(".service-card");
@@ -418,7 +439,6 @@
     popups.forEach(p => p.classList.remove("active"));
   }
 
-  // Desktop hover
   if (window.innerWidth > 768) {
     cards.forEach(card => {
       const popup = document.getElementById(card.dataset.popup);
@@ -432,7 +452,6 @@
     });
   }
 
-  // Mobile tap
   if (window.innerWidth <= 768) {
     cards.forEach(card => {
       card.addEventListener("click", e => {
@@ -444,31 +463,27 @@
     document.addEventListener("click", closeAllPopups);
   }
 
-  // X button
   document.querySelectorAll(".popup-close").forEach(btn => {
     btn.addEventListener("click", closeAllPopups);
   });
 </script>
 
-<!-- DYNAMIC SECTIONS -->
-
 <script>
   const select = document.getElementById("serviceType");
-  const secVisit = document.getElementById("section-visit");
-  const secParty = document.getElementById("section-party");
-  const secRental = document.getElementById("section-rental");
-  const secPublic = document.getElementById("section-public");
+  const sections = {
+    visit: document.getElementById("section-visit"),
+    party: document.getElementById("section-party"),
+    rental: document.getElementById("section-rental"),
+    public: document.getElementById("section-public")
+  };
 
   function updateSections() {
-    secVisit.style.display = select.value === "visit" ? "block" : "none";
-    secParty.style.display = select.value === "party" ? "block" : "none";
-    secRental.style.display = select.value === "rental" ? "block" : "none";
-    secPublic.style.display = select.value === "public" ? "block" : "none";
+    Object.keys(sections).forEach(key => {
+      sections[key].style.display = select.value === key ? "block" : "none";
+    });
   }
   select.addEventListener("change", updateSections);
 </script>
-
-<!-- WEB3FORMS -->
 
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
