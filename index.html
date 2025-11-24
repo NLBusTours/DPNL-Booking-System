@@ -133,10 +133,10 @@
 .service-hover-popup {
   position: fixed;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.97);
   display: none;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -146,7 +146,7 @@
   background: #fff;
   padding: 28px;
   border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.22);
   z-index: 9999;
   border: 2px solid #f6d365;
 }
@@ -154,7 +154,9 @@
 .service-hover-popup.active {
   display: flex;
   opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* smooth pop-in */
 }
+
 
 .popup-close {
   position: absolute;
