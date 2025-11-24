@@ -60,17 +60,18 @@
     }
 
     /* Service cards */
-    .service-info {
-      display: flex; flex-wrap: nowrap;   /* FORCE one row */
-      justify-content: center;
-      gap: 20px;
-      overflow-x: auto;  /* allows sideways scroll on mobile */
-      padding: 10px;
-      max-width: 100%;
-      margin: 40px auto;
-    }
+.service-info {
+  display: flex;
+  flex-wrap: nowrap;   /* FORCE one row */
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;    /* allows sideways scroll on mobile */
+  padding: 10px;
+  max-width: 100%;
+  margin: 40px auto;
+}
 
-    .service-card {
+.service-card {
   min-width: 260px; max-width: 260px;
   background: #fff; border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
@@ -78,7 +79,8 @@
   border: 1px solid #f8dce8;
   transition: transform 0.25s ease;
   position: relative;
-  padding-bottom: 20px; /* adds space below text */
+  padding-bottom: 20px;
+  overflow: hidden; /* prevents flicker when img scales */
 }
 
 .service-card h4 {
@@ -90,55 +92,20 @@
   font-size: 0.9em;
   color: #7a5a73;
 }
-    .service-card img {
-  width: 100%;
-  height: 180px;       /* 👈 make all images equal height */
-  object-fit: cover;   /* 👈 crops landscape/portrait nicely */
-  border-radius: 14px 14px 0 0;
-}
 
-    .service-card:hover img {
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
+/* Card images */
 .service-card img {
+  width: 100%;
+  height: 180px;        /* equal height */
+  object-fit: cover;    /* crops correctly */
+  border-radius: 14px 14px 0 0;
   transition: transform 0.3s ease;
 }
 
-    /* Popups */
-    .service-hover-popup {
-      position: fixed; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      display: none;
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      flex-wrap: wrap; justify-content: center; gap: 24px;
-      width: 90vw; max-width: 900px;
-      background: #fff;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-      z-index: 9999;
-      border: 2px solid #f6d365;
-    }
-    .service-hover-popup.active {
-      display: flex;
-      opacity: 1;
-    }
-    .popup-close {
-      position: absolute; top: 8px; right: 14px;
-      font-size: 1.8em; font-weight: bold;
-      cursor: pointer; color: #7a5a73;
-    }
+.service-card:hover img {
+  transform: scale(1.02);
+}
 
-    /* Dynamic form sections */
-    .service-section {
-      margin-top: 18px;
-      padding: 14px; border-radius: 12px;
-      background: #fff7fb;
-      border: 1px dashed #f8a8d8;
-      display: none;
-    }
     
 .intro-highlighted-box {
   margin-bottom: 50px;   /* 🪄 pushes cards down */
