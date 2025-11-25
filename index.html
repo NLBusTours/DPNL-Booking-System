@@ -280,9 +280,7 @@
 <div id="booking-form">
 <form id="bookingForm">
 
-<input type="hidden" name="_subject" value="DPNL Booking Request">
-<input type="hidden" name="from_name" value="Online Booking Request">
-<input type="hidden" name="_to" value="dreampartiesnl@gmail.com">
+<input type="hidden" name="from_name" value="Booking Request">
 
 
   <h3>Booking Request Form</h3>
@@ -680,18 +678,31 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   const fullData = new FormData(form);
   const formData = new FormData();
 
-  // --- REMOVE section prefixes (Visit -, Party -, etc.) ---
+  // ---- Format date as DD/MM/YYYY ----
+  function formatDateToDDMMYYYY(dateStr) {
+    if (!dateStr) return "";
+    const parts = dateStr.split("-"); // yyyy-mm-dd
+    if (parts.length !== 3) return dateStr;
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
+
+  // ---- REMOVE section prefixes + filter empty fields ----
   fullData.forEach((value, key) => {
+
+    // Format date field BEFORE it goes through cleanup
+    if (key === "Date") {
+      value = formatDateToDDMMYYYY(value);
+    }
+
     let cleanKey = key.replace(/^Visit - /, "")
                       .replace(/^Party - /, "")
                       .replace(/^Rental - /, "")
                       .replace(/^Public - /, "")
                       .trim();
 
-    // --- IGNORE empty fields OR wrong-service fields ---
     if (!value || value === "0" || value === "0 Hours" || value === "00 Minutes") return;
 
-    // Skip if key doesn't belong to selected section (unless general fields)
+    // Skip unrelated section fields
     if (key.includes("Visit") && service !== "visit") return;
     if (key.includes("Party") && service !== "party") return;
     if (key.includes("Rental") && service !== "rental") return;
@@ -700,16 +711,21 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     formData.append(cleanKey, value);
   });
 
-  // Append service type first so it's at the top
+  // ---- Service name mapping ----
   const serviceText = {
     "visit": "Princess Visit",
     "party": "Dream Room Princess Party",
     "rental": "Venue Rental",
     "public": "Public Event / Market / Festival"
   }[service];
+
+  // ---- Ensure Booking Type is first ----
   formData.set("Booking Type", serviceText);
 
-  // Web3Forms access key
+  // ---- Subject line ----
+  formData.append("_subject", `DPNL Booking Request — ${serviceText}`);
+
+  // ---- Web3Forms Access Key ----
   formData.append("access_key", "b4e1ea87-1269-47db-a701-76000636a7c0");
 
   try {
@@ -723,7 +739,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     if (result.success) {
       window.location.href = "thank-you.html";
     } else {
-      alert("⚠ Something went wrong. Please try again.");
+      alert("⚠ Something went wrong. Please try refreshing and trying again.");
       submitBtn.disabled = false;
       submitBtn.innerText = "Submit Booking Request";
     }
@@ -736,9 +752,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
 });
 </script>
-
-
-
 
 <footer>© 2025 Dream Parties NL</footer>
 
