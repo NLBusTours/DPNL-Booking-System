@@ -568,7 +568,17 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   submitBtn.disabled = true;
   submitBtn.innerText = "Submitting...";
 
-  const formData = new FormData(form);
+  // Filter out all empty fields before sending
+  const fullData = new FormData(form);
+  const formData = new FormData();
+
+  fullData.forEach((value, key) => {
+    if (value !== null && value !== "" && value !== "0" && value !== "0 Hours" && value !== "00 Minutes") {
+      formData.append(key, value);
+    }
+  });
+
+  // Add your access key after filtering
   formData.append("access_key", "b4e1ea87-1269-47db-a701-76000636a7c0");
 
   try {
@@ -595,6 +605,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
 });
 </script>
+
 
 
 <footer>© 2025 Dream Parties NL</footer>
