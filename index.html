@@ -719,12 +719,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     "public": "Public Event / Market / Festival"
   }[service];
 
-  // ---- Ensure Booking Type is first ----
-  formData.set("Booking Type", serviceText);
-
-  // ---- Subject line ----
-  formData.append("_subject", `DPNL Booking Request — ${serviceText}`);
-
   // ---- Web3Forms Access Key ----
   formData.append("access_key", "b4e1ea87-1269-47db-a701-76000636a7c0");
 
