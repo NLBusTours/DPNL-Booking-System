@@ -57,6 +57,34 @@
       text-align: center; color: #5a3553; display: block;
       border: 1px solid #f8a8d8;
     }
+.view-characters-btn {
+  background: #ffe4fa;
+  border: 1px solid #f8a8d8;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #b03060;
+}
+
+.view-characters-btn:hover {
+  background: #f8a8d8;
+  color: #fff;
+}
+
+.character-list {
+  display: none;
+  padding: 10px;
+  background: #fff0fb;
+  border: 1px solid #f8a8d8;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #5a3553;
+}
 
     /* Service cards */
 .service-info {
@@ -583,6 +611,14 @@
   });
 </script>
 
+<script>
+function toggleCharactersList(btn) {
+  const list = btn.nextElementSibling;
+  list.style.display = list.style.display === "block" ? "none" : "block";
+}
+</script>
+
+  
 <!-- DYNAMIC SECTIONS SCRIPT -->
 <script>
   const select = document.getElementById("serviceType");
