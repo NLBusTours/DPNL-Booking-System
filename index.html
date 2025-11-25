@@ -58,16 +58,27 @@
       border: 1px solid #f8a8d8;
     }
     
+.character-list {
+  background: #fffefc;
+  padding: 12px 14px;
+  border: 1px dashed #f8a8d8;
+  border-radius: 12px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  display: none;
+  line-height: 1.45;
+}
+
 .view-characters-btn {
-  background: #ffe4fa;
-  border: 1px solid #f8a8d8;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  cursor: pointer;
   margin-top: 6px;
   margin-bottom: 6px;
-  color: #b03060;
+  background: #f6d365;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #7a355d;
 }
 
 .view-characters-btn:hover {
@@ -75,16 +86,14 @@
   color: #fff;
 }
 
-.character-list {
-  display: none;
-  padding: 10px;
-  background: #fff0fb;
-  border: 1px solid #f8a8d8;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #5a3553;
+.character-photo-link {
+  margin-top: 4px;
+  text-align: left;
+}
+
+.character-photo-link a {
+  color: #b03060;
+  font-weight: 600;
 }
 
     /* Service cards */
@@ -243,6 +252,15 @@
       border: 1px dashed #f8a8d8;
       display: none;
     }
+
+   /* Allow links inside dropdown helper text to be clickable */
+.service-section small a {
+  pointer-events: auto !important;
+  color: #b03060;
+  font-weight: 600;
+  text-decoration: underline;
+}
+ 
   </style>
 </head>
 
@@ -326,9 +344,11 @@
 
     <strong>❄ Other </strong><br>
     Santa Claus, Olaf, The Beast, Peter Pan, Kristoff, Flynn, Other
-      <small>
-  🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
-</small>
+      
+      <!-- LINK BELOW ON ITS OWN LINE -->
+<div class="character-photo-link">
+    🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
+</div>
 
 </div>
 
@@ -368,9 +388,11 @@
 
     <strong>❄ Other </strong><br>
     Santa Claus, Olaf, The Beast, Peter Pan, Kristoff, Flynn, Other
-      <small>
-  🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
-</small>
+      
+      <!-- LINK BELOW ON ITS OWN LINE -->
+<div class="character-photo-link">
+    🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
+</div>
 
 </div>
 
@@ -469,10 +491,10 @@
     <strong>❄ Other </strong><br>
     Santa Claus, Olaf, The Beast, Peter Pan, Kristoff, Flynn, Other
       
-      <small>
-  🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
-</small>
-
+      <!-- LINK BELOW ON ITS OWN LINE -->
+<div class="character-photo-link">
+    🌟 <a href="https://dreampartiesnl.ca/our-characters" target="_blank">See character photos here</a>
+  </div>
 </div>
 
     <label>Upgrade / Activity Requests</label>
