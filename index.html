@@ -304,9 +304,10 @@
   <input type="email" name="Email" placeholder="your@email.com" required />
 
   <div class="form-row-inline">
-    <div><label>Date</label><input type="date" name="Date" required /></div>
+    <div><label>Date</label><input type="date" id="raw-date" name="Date" required /></div>
     <div><label>Time</label><input type="time" name="Time" required /></div>
   </div>
+  <p id="date-error" style="color:#b03060;font-weight:600;display:none;margin-top:6px;">Please select a future date.</p>
 
   <!-- Princess Visit -->
   <div class="service-section" id="section-visit">
@@ -663,11 +664,34 @@ function toggleCharactersList(btn) {
   select.addEventListener("change", updateSections);
 </script>
 
+<!-- DATE VALIDATION -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const dateInput = document.getElementById("raw-date");
+  const dateError = document.getElementById("date-error");
+  const today = new Date().toISOString().split("T")[0];
+  dateInput.setAttribute("min", today);
+  dateInput.addEventListener("change", function () {
+    if (dateInput.value >= today) dateError.style.display = "none";
+  });
+});
+</script>
+
 <!-- WEB3FORMS SUBMISSION -->
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function (e) {
 
   e.preventDefault();
+
+  // Date validation — block past dates
+  const dateInput = document.getElementById("raw-date");
+  const dateError = document.getElementById("date-error");
+  const today = new Date().toISOString().split("T")[0];
+  if (dateInput.value < today) {
+    dateError.style.display = "block";
+    dateInput.focus();
+    return;
+  }
 
   const form = this;
   const submitBtn = form.querySelector("button[type='submit']");
